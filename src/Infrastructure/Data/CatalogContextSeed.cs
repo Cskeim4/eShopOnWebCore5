@@ -60,10 +60,7 @@ namespace Microsoft.eShopWeb.Infrastructure.Data
         {
             return new List<CatalogBrand>
             {
-                new("Azure"),
-                new(".NET"),
-                new("Visual Studio"),
-                new("SQL Server"),
+                new("Ecomended"),
                 new("Other")
             };
         }
@@ -72,10 +69,13 @@ namespace Microsoft.eShopWeb.Infrastructure.Data
         {
             return new List<CatalogType>
             {
-                new("Mug"),
+                new("Cleaning Brush"),
                 new("T-Shirt"),
-                new("Sheet"),
-                new("USB Memory Stick")
+                new("Bag"),
+                new("Sponge"),
+                new("Plant Based Glitter"),
+                new("Pouch"),
+                new("Reusable Straws")
             };
         }
 
@@ -83,18 +83,18 @@ namespace Microsoft.eShopWeb.Infrastructure.Data
         {
             return new List<CatalogItem>
             {
-                new(2,2, ".NET Bot Black Sweatshirt", ".NET Bot Black Sweatshirt", 19.5M,  "http://catalogbaseurltobereplaced/images/products/1.png"),
-                new(1,2, ".NET Black & White Mug", ".NET Black & White Mug", 8.50M, "http://catalogbaseurltobereplaced/images/products/2.png"),
-                new(2,5, "Prism White T-Shirt", "Prism White T-Shirt", 12,  "http://catalogbaseurltobereplaced/images/products/3.png"),
-                new(2,2, ".NET Foundation Sweatshirt", ".NET Foundation Sweatshirt", 12, "http://catalogbaseurltobereplaced/images/products/4.png"),
-                new(3,5, "Roslyn Red Sheet", "Roslyn Red Sheet", 8.5M, "http://catalogbaseurltobereplaced/images/products/5.png"),
-                new(2,2, ".NET Blue Sweatshirt", ".NET Blue Sweatshirt", 12, "http://catalogbaseurltobereplaced/images/products/6.png"),
-                new(2,5, "Roslyn Red T-Shirt", "Roslyn Red T-Shirt",  12, "http://catalogbaseurltobereplaced/images/products/7.png"),
-                new(2,5, "Kudu Purple Sweatshirt", "Kudu Purple Sweatshirt", 8.5M, "http://catalogbaseurltobereplaced/images/products/8.png"),
-                new(1,5, "Cup<T> White Mug", "Cup<T> White Mug", 12, "http://catalogbaseurltobereplaced/images/products/9.png"),
-                new(3,2, ".NET Foundation Sheet", ".NET Foundation Sheet", 12, "http://catalogbaseurltobereplaced/images/products/10.png"),
-                new(3,2, "Cup<T> Sheet", "Cup<T> Sheet", 8.5M, "http://catalogbaseurltobereplaced/images/products/11.png"),
-                new(2,5, "Prism White TShirt", "Prism White TShirt", 12, "http://catalogbaseurltobereplaced/images/products/12.png")
+                new(1,1, "Coconut Bottle Cleaning Brush", "Coconut Bottle Cleaning Brush", 4.99M,  "images/products/one.png"),
+                new(2,1, "Eye Heart Sea Turtle fair trade tee", "Eye Heart Sea Turtle fair trade tee", 14.99M, "images/products/two.jpeg"),
+                new(3,2, "Vegan Leaf Leather Tote (Small)", "Vegan Leaf Leather Tote (Small)", 39.99M,  "images/products/three.jpeg"),
+                new(7,2, "Heart Shaped Reusable Stainless Steel Straws", "Heart Shaped Reusable Stainless Steel Straws", 2.49M, "images/products/four.jpeg"),
+                new(4,2, "Konjac Exfoliating Sponge", "Konjac Exfoliating Sponge", 4.99M, "images/products/five.webp"),
+                new(5,2, "Eco-Friendly Plant Based Glitter", "Eco-Friendly Plant Based Glitter", 2.99M, "images/products/six.webp"),
+                new(1,1, "Coconut Dish/Cup Cleaning Brush", "Coconut Dish/Cup Cleaning Brush",  4.99M, "images/products/seven.webp"),
+                new(2,1, "Eye Heart Baby Panda fair trade tee", "Eye Heart Baby Panda fair trade tee", 14.99M, "images/products/eight.jpeg"),
+                new(4,2, "Kids Fun Shapes Konjac Sponges", "Kids Fun Shapes Konjac Sponges", 4.99M, "images/products/nine.webp"),
+                new(7,2, "Reusable Stainless Steel Straws(Straight)", "Reusable Stainless Steel Straws(Straight", 1.99M, "images/products/ten.webp"),
+                new(2,1, "Eye Heart Sloth fair trade tee", "Eye Heart Sloth fair trade tee", 14.99M, "images/products/eleven.jpeg"),
+                new(6,1, "Leaf Leather keyring pouch", "Leaf Leather keyring pouch", 4.99M, "images/products/twelve.webp")
             };
         }
     }

@@ -7,6 +7,8 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Web' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Web - PROD' " />
   <ItemGroup>
     <Compile Remove="Catalog\**" />
     <Content Remove="Catalog\**" />
