@@ -60,6 +60,7 @@ namespace Microsoft.eShopWeb.Infrastructure.Data
         {
             return new List<CatalogBrand>
             {
+                //Updated the catalog brands
                 new("Ecomended"),
                 new("Other")
             };
@@ -69,6 +70,7 @@ namespace Microsoft.eShopWeb.Infrastructure.Data
         {
             return new List<CatalogType>
             {
+                //Updated the catalog item types
                 new("Cleaning Brush"),
                 new("T-Shirt"),
                 new("Bag"),
@@ -81,8 +83,10 @@ namespace Microsoft.eShopWeb.Infrastructure.Data
 
         static IEnumerable<CatalogItem> GetPreconfiguredItems()
         {
+            //When the catalog item constructor is called -add a color attribute
             return new List<CatalogItem>
             {
+                //Changed the catalog items, added a color attribute, and modified the first two integers(item type and brand)
                 new(1,1, "Coconut Bottle Cleaning Brush", "- Tan", "Coconut Bottle Cleaning Brush", 4.99M,  "images/products/one.png"),
                 new(2,1, "Eye Heart Sea Turtle fair trade tee", "- Teal", "Eye Heart Sea Turtle fair trade tee", 14.99M, "images/products/two.jpeg"),
                 new(3,2, "Vegan Leaf Leather Tote (Small)", "- Green", "Vegan Leaf Leather Tote (Small)", 39.99M,  "images/products/three.jpeg"),

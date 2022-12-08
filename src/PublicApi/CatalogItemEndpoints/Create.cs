@@ -46,7 +46,8 @@ namespace Microsoft.eShopWeb.PublicApi.CatalogItemEndpoints
                 throw new DuplicateException($"A catalogItem with name {request.Name} already exists");
             }
 
-            var newItem = new CatalogItem(request.CatalogTypeId, request.CatalogBrandId, request.Description, request.Name, request.Price, request.PictureUri);
+            //Create a new catalog item and add the specified color
+            var newItem = new CatalogItem(request.CatalogTypeId, request.CatalogBrandId, request.Description, request.Color, request.Name, request.Price, request.PictureUri);
             newItem = await _itemRepository.AddAsync(newItem, cancellationToken);
 
             if (newItem.Id != 0)
@@ -59,12 +60,14 @@ namespace Microsoft.eShopWeb.PublicApi.CatalogItemEndpoints
                 await _itemRepository.UpdateAsync(newItem, cancellationToken);
             }
 
+            //Add color to the new catalog item
             var dto = new CatalogItemDto
             {
                 Id = newItem.Id,
                 CatalogBrandId = newItem.CatalogBrandId,
                 CatalogTypeId = newItem.CatalogTypeId,
                 Description = newItem.Description,
+                Color = newItem.Color,
                 Name = newItem.Name,
                 PictureUri = _uriComposer.ComposePicUri(newItem.PictureUri),
                 Price = newItem.Price

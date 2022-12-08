@@ -5,6 +5,8 @@
         public int CatalogBrandId { get; set; }
         public int CatalogTypeId { get; set; }
         public string Description { get; set; }
+        //Add color to the create catalog item request
+        public string Color { get; set; }
         public string Name { get; set; }
         public string PictureUri { get; set; }
         public string PictureBase64 { get; set; }

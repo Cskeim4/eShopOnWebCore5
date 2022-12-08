@@ -8,6 +8,7 @@ namespace Microsoft.eShopWeb.ApplicationCore.Entities
     {
         public string Name { get; private set; }
         public string Description { get; private set; }
+        //New color attribute added to the catalog item constructor
         public string Color { get; private set; }
         public decimal Price { get; private set; }
         public string PictureUri { get; private set; }
@@ -19,6 +20,7 @@ namespace Microsoft.eShopWeb.ApplicationCore.Entities
         public CatalogItem(int catalogTypeId,
             int catalogBrandId,
             string description,
+            //Color added in the constructor
             string color,
             string name,
             decimal price,
@@ -33,10 +35,12 @@ namespace Microsoft.eShopWeb.ApplicationCore.Entities
             PictureUri = pictureUri;
         }
 
+        //Color added to the update details method
         public void UpdateDetails(string name, string description, string color, decimal price)
         {
             Guard.Against.NullOrEmpty(name, nameof(name));
             Guard.Against.NullOrEmpty(description, nameof(description));
+            //Check to make sure that color is not null or empty
             Guard.Against.NullOrEmpty(color, nameof(color));
             Guard.Against.NegativeOrZero(price, nameof(price));
 

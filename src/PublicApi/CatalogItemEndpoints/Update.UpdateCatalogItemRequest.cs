@@ -12,6 +12,9 @@ namespace Microsoft.eShopWeb.PublicApi.CatalogItemEndpoints
         public int CatalogTypeId { get; set; }
         [Required]
         public string Description { get; set; }
+        //Add color to the update catalog item request
+        [Required]
+        public string Color { get; set; }
         [Required]
         public string Name { get; set; }
         public string PictureBase64 { get; set; }

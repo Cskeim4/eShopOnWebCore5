@@ -49,12 +49,14 @@ namespace Microsoft.eShopWeb.Web.Services
             var itemsOnPage = await _itemRepository.ListAsync(filterPaginatedSpecification);
             var totalItems = await _itemRepository.CountAsync(filterSpecification);
 
+            //Add color to the catalog item attributes that will be copied over to the catalog index view model
             var vm = new CatalogIndexViewModel()
             {
                 CatalogItems = itemsOnPage.Select(i => new CatalogItemViewModel()
                 {
                     Id = i.Id,
                     Name = i.Name,
+                    //Add color to the catalog attributes
                     Color = i.Color,
                     PictureUri = _uriComposer.ComposePicUri(i.PictureUri),
                     Price = i.Price

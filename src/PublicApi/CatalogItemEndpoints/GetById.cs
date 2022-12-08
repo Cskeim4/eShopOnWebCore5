@@ -41,6 +41,8 @@ namespace Microsoft.eShopWeb.PublicApi.CatalogItemEndpoints
                 CatalogBrandId = item.CatalogBrandId,
                 CatalogTypeId = item.CatalogTypeId,
                 Description = item.Description,
+                //Add color to the new catalog item dto
+                Color = item.Color,
                 Name = item.Name,
                 PictureUri = _uriComposer.ComposePicUri(item.PictureUri),
                 Price = item.Price
