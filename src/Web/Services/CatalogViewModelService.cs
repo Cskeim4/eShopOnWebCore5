@@ -21,29 +21,35 @@ namespace Microsoft.eShopWeb.Web.Services
         private readonly IRepository<CatalogItem> _itemRepository;
         private readonly IRepository<CatalogBrand> _brandRepository;
         private readonly IRepository<CatalogType> _typeRepository;
+        //create a new repository for the catalog colors
+        private readonly IRepository<CatalogColor> _colorRepository;
         private readonly IUriComposer _uriComposer;
 
+        //add color to the catalog view model service constructor
         public CatalogViewModelService(
             ILoggerFactory loggerFactory,
             IRepository<CatalogItem> itemRepository,
             IRepository<CatalogBrand> brandRepository,
             IRepository<CatalogType> typeRepository,
+            IRepository<CatalogColor> colorRepository,
             IUriComposer uriComposer)
         {
             _logger = loggerFactory.CreateLogger<CatalogViewModelService>();
             _itemRepository = itemRepository;
             _brandRepository = brandRepository;
             _typeRepository = typeRepository;
+            _colorRepository = colorRepository;
             _uriComposer = uriComposer;
         }
 
-        public async Task<CatalogIndexViewModel> GetCatalogItems(int pageIndex, int itemsPage, int? brandId, int? typeId)
+        //add color to the get catalog items method
+        public async Task<CatalogIndexViewModel> GetCatalogItems(int pageIndex, int itemsPage, int? brandId, int? typeId, int? colorId)
         {
             _logger.LogInformation("GetCatalogItems called.");
 
-            var filterSpecification = new CatalogFilterSpecification(brandId, typeId);
+            var filterSpecification = new CatalogFilterSpecification(brandId, typeId, colorId);
             var filterPaginatedSpecification =
-                new CatalogFilterPaginatedSpecification(itemsPage * pageIndex, itemsPage, brandId, typeId);
+                new CatalogFilterPaginatedSpecification(itemsPage * pageIndex, itemsPage, brandId, typeId, colorId);
 
             // the implementation below using ForEach and Count. We need a List.
             var itemsOnPage = await _itemRepository.ListAsync(filterPaginatedSpecification);
@@ -63,8 +69,11 @@ namespace Microsoft.eShopWeb.Web.Services
                 }).ToList(),
                 Brands = (await GetBrands()).ToList(),
                 Types = (await GetTypes()).ToList(),
+                Colors = (await GetColors()).ToList(),
                 BrandFilterApplied = brandId ?? 0,
                 TypesFilterApplied = typeId ?? 0,
+                //add the color filter 
+                ColorFilterApplied = colorId ?? 0,
                 PaginationInfo = new PaginationInfoViewModel()
                 {
                     ActualPage = pageIndex,
@@ -104,6 +113,23 @@ namespace Microsoft.eShopWeb.Web.Services
             var items = types
                 .Select(type => new SelectListItem() { Value = type.Id.ToString(), Text = type.Type })
                 .OrderBy(t => t.Text)
+                .ToList();
+
+            var allItem = new SelectListItem() { Value = null, Text = "All", Selected = true };
+            items.Insert(0, allItem);
+
+            return items;
+        }
+
+        //create a get colors method to get the colors from the catalog list
+        public async Task<IEnumerable<SelectListItem>> GetColors()
+        {
+            _logger.LogInformation("GetColors called.");
+            var colors = await _colorRepository.ListAsync();
+
+            var items = colors
+                .Select(color => new SelectListItem() { Value = color.Id.ToString(), Text = color.Color })
+                .OrderBy(c => c.Text)
                 .ToList();
 
             var allItem = new SelectListItem() { Value = null, Text = "All", Selected = true };

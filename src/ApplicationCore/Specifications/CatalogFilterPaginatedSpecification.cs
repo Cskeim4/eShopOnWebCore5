@@ -5,7 +5,8 @@ namespace Microsoft.eShopWeb.ApplicationCore.Specifications
 {
     public class CatalogFilterPaginatedSpecification : Specification<CatalogItem>
     {
-        public CatalogFilterPaginatedSpecification(int skip, int take, int? brandId, int? typeId)
+        //add color to the catalog filer specification and query
+        public CatalogFilterPaginatedSpecification(int skip, int take, int? brandId, int? typeId, int? colorId)
             : base()
         {
             if (take == 0)
@@ -14,7 +15,8 @@ namespace Microsoft.eShopWeb.ApplicationCore.Specifications
             }
             Query
                 .Where(i => (!brandId.HasValue || i.CatalogBrandId == brandId) &&
-                (!typeId.HasValue || i.CatalogTypeId == typeId))
+                (!typeId.HasValue || i.CatalogTypeId == typeId) &&
+                (!colorId.HasValue || i.CatalogTypeId == colorId))
                 .Skip(skip).Take(take);
         }
     }

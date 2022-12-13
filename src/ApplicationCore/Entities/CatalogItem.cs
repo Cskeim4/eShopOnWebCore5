@@ -12,13 +12,20 @@ namespace Microsoft.eShopWeb.ApplicationCore.Entities
         public string Color { get; private set; }
         public decimal Price { get; private set; }
         public string PictureUri { get; private set; }
+
         public int CatalogTypeId { get; private set; }
         public CatalogType CatalogType { get; private set; }
+
         public int CatalogBrandId { get; private set; }
         public CatalogBrand CatalogBrand { get; private set; }
 
+        //new catalog color id created
+        public int CatalogColorId { get; private set; }
+        public CatalogColor CatalogColor { get; private set; }
+
         public CatalogItem(int catalogTypeId,
             int catalogBrandId,
+            int catalogColorId,
             string description,
             //Color added in the constructor
             string color,
@@ -28,6 +35,8 @@ namespace Microsoft.eShopWeb.ApplicationCore.Entities
         {
             CatalogTypeId = catalogTypeId;
             CatalogBrandId = catalogBrandId;
+            //catalog color id added to the constructor
+            CatalogColorId = catalogColorId;
             Description = description;
             Color = color;
             Name = name;
@@ -60,6 +69,13 @@ namespace Microsoft.eShopWeb.ApplicationCore.Entities
         {
             Guard.Against.Zero(catalogTypeId, nameof(catalogTypeId));
             CatalogTypeId = catalogTypeId;
+        }
+
+        //added an update color method
+        public void UpdateColor(int catalogColorId)
+        {
+            Guard.Against.Zero(catalogColorId, nameof(catalogColorId));
+            CatalogColorId = catalogColorId;
         }
 
         public void UpdatePictureUri(string pictureName)

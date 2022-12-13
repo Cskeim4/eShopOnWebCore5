@@ -17,6 +17,8 @@ namespace Microsoft.eShopWeb.Infrastructure.Data
         public DbSet<CatalogItem> CatalogItems { get; set; }
         public DbSet<CatalogBrand> CatalogBrands { get; set; }
         public DbSet<CatalogType> CatalogTypes { get; set; }
+        //add a DbSet for catalog colors
+        public DbSet<CatalogColor> CatalogColors { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<BasketItem> BasketItems { get; set; }
