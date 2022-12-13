@@ -25,6 +25,7 @@ namespace Microsoft.eShopWeb.ApplicationCore.Entities
 
         public CatalogItem(int catalogTypeId,
             int catalogBrandId,
+            //color id added for filter
             int catalogColorId,
             string description,
             //Color added in the constructor
