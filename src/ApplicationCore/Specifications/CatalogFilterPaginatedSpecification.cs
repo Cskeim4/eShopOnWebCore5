@@ -16,6 +16,7 @@ namespace Microsoft.eShopWeb.ApplicationCore.Specifications
             Query
                 .Where(i => (!brandId.HasValue || i.CatalogBrandId == brandId) &&
                 (!typeId.HasValue || i.CatalogTypeId == typeId) &&
+                //bug fix: catalogCOLORId
                 (!colorId.HasValue || i.CatalogColorId == colorId))
                 .Skip(skip).Take(take);
         }
