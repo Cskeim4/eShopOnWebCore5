@@ -5,6 +5,7 @@ namespace Microsoft.eShopWeb.Web.Extensions
     public static class CacheHelpers
     {
         public static readonly TimeSpan DefaultCacheDuration = TimeSpan.FromSeconds(30);
+        //add color to the items key template string
         private static readonly string _itemsKeyTemplate = "items-{0}-{1}-{2}-{3}-{4}";
 
         //add color to the item cache key generation method
